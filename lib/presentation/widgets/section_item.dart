@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class ListItem extends StatelessWidget {
-  const ListItem(
+class SectionItem extends StatelessWidget {
+  const SectionItem(
       {Key? key, required this.title, required this.img, required this.page})
       : super(key: key);
 
