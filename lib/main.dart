@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_fitness_app/logic/fitness_provider.dart';
-import 'package:flutter_fitness_app/presentation/screens/calculator.dart';
-import 'package:flutter_fitness_app/presentation/screens/diet.dart';
-import 'package:flutter_fitness_app/presentation/screens/exercise_details.dart';
-import 'package:flutter_fitness_app/presentation/screens/exercises.dart';
+import 'package:flutter_fitness_app/data/barrel/screens_main_barrel.dart';
 import 'package:provider/provider.dart';
-
 import 'presentation/screens/launch_screen.dart';
 
 void main() {
@@ -35,8 +31,12 @@ class MyApp extends StatelessWidget {
       routes: {
         '/home': (context) => const LaunchScreen(),
         '/calculator_page': (context) => const Calculator(),
-        '/exercises_page': (context) => Exercises(),
+        '/exercise_types_page': (context) => Exercises(),
         '/diet_page': (context) => const Diet(),
+        '/abs_page': (context) => AbsPage(),
+        '/back_page': (context) => BackPage(),
+        '/chest_page': (context) => ChestPage(),
+        '/legs_page': (context) => LegsPage(),
       },
     );
   }

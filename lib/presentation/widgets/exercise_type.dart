@@ -1,16 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_fitness_app/presentation/screens/exercise_details.dart';
 
-class ExerciseItem extends StatelessWidget {
-  const ExerciseItem(
-      {Key? key,
-      required this.name,
-      required this.description,
-      required this.img})
+class ExerciseType extends StatelessWidget {
+  const ExerciseType(
+      {Key? key, required this.name, required this.page, required this.img})
       : super(key: key);
 
   final String name;
-  final String description;
+  final String page;
   final String img;
 
   @override
@@ -18,12 +14,9 @@ class ExerciseItem extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(top: 8),
       child: GestureDetector(
-        onTap: () => Navigator.push(
+        onTap: () => Navigator.pushNamed(
           context,
-          MaterialPageRoute(
-            builder: ((context) => ExerciseDetails(
-                name: name, description: description, img: img)),
-          ),
+          page,
         ),
         child: SizedBox(
           height: 280,
@@ -35,7 +28,10 @@ class ExerciseItem extends StatelessWidget {
             child: Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(top: 8),
+                  padding: const EdgeInsets.only(
+                    top: 8,
+                    bottom: 8,
+                  ),
                   child: Text(
                     name,
                     style: const TextStyle(
@@ -46,8 +42,12 @@ class ExerciseItem extends StatelessWidget {
                 ),
                 ClipRRect(
                   borderRadius: BorderRadius.circular(8),
-                  child: Image(
-                    image: AssetImage(img),
+                  child: SizedBox(
+                    width: 200,
+                    height: 200,
+                    child: Image(
+                      image: AssetImage(img),
+                    ),
                   ),
                 ),
               ],

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_fitness_app/data/data_exercises/data_exercises.dart';
-import 'package:flutter_fitness_app/presentation/widgets/exercise_item.dart';
+import 'package:flutter_fitness_app/data/data_exercises/data_exercises_section.dart';
+import 'package:flutter_fitness_app/presentation/widgets/exercise_type.dart';
 
 class Exercises extends StatelessWidget {
   Exercises({Key? key}) : super(key: key);
@@ -45,9 +45,9 @@ class Exercises extends StatelessWidget {
             child: ListView.builder(
               itemBuilder: (context, index) {
                 final exercise = exerciseList[index];
-                return ExerciseItem(
+                return ExerciseType(
                   name: exercise.name,
-                  description: exercise.description,
+                  page: exercise.page,
                   img: exercise.img,
                 );
               },
@@ -59,28 +59,3 @@ class Exercises extends StatelessWidget {
     );
   }
 }
-
-
-// SingleChildScrollView(
-//             child: Column(
-//               mainAxisAlignment: MainAxisAlignment.center,
-//               children: [
-//                 ExerciseItem(
-//                     name: exerciseList[0].name,
-//                     description: exerciseList[0].description,
-//                     img: exerciseList[0].img),
-//                 ExerciseItem(
-//                     name: exerciseList[1].name,
-//                     description: exerciseList[1].description,
-//                     img: exerciseList[1].img),
-//                 ExerciseItem(
-//                     name: exerciseList[2].name,
-//                     description: exerciseList[2].description,
-//                     img: exerciseList[2].img),
-//                 ExerciseItem(
-//                     name: exerciseList[3].name,
-//                     description: exerciseList[3].description,
-//                     img: exerciseList[3].img),
-//               ],
-//             ),
-//           ),

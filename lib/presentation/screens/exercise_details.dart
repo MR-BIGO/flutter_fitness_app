@@ -42,22 +42,40 @@ class ExerciseDetails extends StatelessWidget {
             tileMode: TileMode.mirror,
           ),
         ),
-        child: Row(
-          children: [
-            SizedBox(
-              width: 100,
-              height: 300,
-              child: Image(
-                image: AssetImage(img),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              SizedBox(
+                width: 400,
+                height: 300,
+                child: Image(
+                  image: AssetImage(img),
+                ),
               ),
-            ),
-            Column(
-              children: [
-                Text(name),
-                Text(description),
-              ],
-            )
-          ],
+              Padding(
+                padding: const EdgeInsets.only(
+                  top: 40,
+                  bottom: 30,
+                ),
+                child: Text(
+                  name,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                    decoration: TextDecoration.underline,
+                  ),
+                ),
+              ),
+              Text(
+                description,
+                style: const TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

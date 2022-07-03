@@ -1,8 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_fitness_app/presentation/widgets/section_item.dart';
+import 'dart:math' as math;
 
-class LaunchScreen extends StatelessWidget {
+class LaunchScreen extends StatefulWidget {
   const LaunchScreen({Key? key}) : super(key: key);
+
+  @override
+  State<LaunchScreen> createState() => _LaunchScreenState();
+}
+
+class _LaunchScreenState extends State<LaunchScreen>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _controller = AnimationController(
+    duration: const Duration(seconds: 10),
+    vsync: this,
+   
+  )
+    
+    ..repeat();
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,17 +55,38 @@ class LaunchScreen extends StatelessWidget {
           child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children:  const [
-                SizedBox(
-                  width: 150,
-                  height: 150,
-                  child: Image(
-                    image: AssetImage("assets/images/fitness_app_logo.png"),
+              children: [
+                AnimatedBuilder(
+                  animation: _controller,
+                  builder: (BuildContext context, Widget? child) {
+                    return Transform.rotate(
+                      angle: _controller.value * math.pi / 4,
+                      child: child,
+                    );
+                  },
+                  child: const SizedBox(
+                    width: 150,
+                    height: 150,
+                    child: Image(
+                      image: AssetImage("assets/images/fitness_app_logo.png"),
+                    ),
                   ),
                 ),
-                SectionItem(title: "Exercises", img: "assets/images/gym.png", page: '/exercises_page',),
-                SectionItem(title: "Healthy Diet", img: "assets/images/checklist.png", page: '/diet_page',),
-                SectionItem(title: "Calculator", img: "assets/images/scale.png", page: '/calculator_page',),
+                const SectionItem(
+                  title: "Exercises",
+                  img: "assets/images/gym.png",
+                  page: '/exercise_types_page',
+                ),
+                const SectionItem(
+                  title: "Healthy Diet",
+                  img: "assets/images/checklist.png",
+                  page: '/diet_page',
+                ),
+                const SectionItem(
+                  title: "Calculator",
+                  img: "assets/images/scale.png",
+                  page: '/calculator_page',
+                ),
               ],
             ),
           ),
