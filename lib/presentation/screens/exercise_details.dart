@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_fitness_app/presentation/widgets/colors.dart';
 
 class ExerciseDetails extends StatelessWidget {
   const ExerciseDetails(
@@ -21,24 +22,11 @@ class ExerciseDetails extends StatelessWidget {
         elevation: 0,
       ),
       body: Container(
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topLeft,
-            end: Alignment(0.8, 1),
-            colors: <Color>[
-              Color(0xff1f005c),
-              Color(0xff270163),
-              Color(0xff2e026a),
-              Color(0xff360371),
-              Color(0xff3d0579),
-              Color(0xff450780),
-              Color(0xff4d0987),
-              Color(0xff550b8e),
-              Color(0xff5d0d95),
-              Color(0xff650f9d),
-              Color(0xff6e11a4),
-              Color(0xff7613ab),
-            ],
+            end: const Alignment(0.8, 1),
+            colors: colors,
             tileMode: TileMode.mirror,
           ),
         ),

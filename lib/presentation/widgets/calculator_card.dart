@@ -12,14 +12,14 @@ class CalcCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 170,
+      width: 180,
       height: 140,
       child: Card(
         color: const Color(0xff292d43),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
         child: Center(
           child: Padding(
-            padding: const EdgeInsets.all(4.0),
+            padding: const EdgeInsets.all(2.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
