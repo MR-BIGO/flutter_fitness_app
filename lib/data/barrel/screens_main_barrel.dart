@@ -6,3 +6,5 @@ export 'package:flutter_fitness_app/presentation/screens/exercises/abs.dart';
 export 'package:flutter_fitness_app/presentation/screens/exercises/back.dart';
 export 'package:flutter_fitness_app/presentation/screens/exercises/chest.dart';
 export 'package:flutter_fitness_app/presentation/screens/exercises/legs.dart';
+export 'package:flutter_fitness_app/presentation/screens/launch_screen.dart';
+export 'package:flutter_fitness_app/presentation/screens/google_maps.dart';

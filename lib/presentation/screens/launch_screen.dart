@@ -45,6 +45,11 @@ class LaunchScreen extends StatelessWidget {
                   img: "assets/images/scale.png",
                   page: '/calculator_page',
                 ),
+                SectionItem(
+                  title: "Find Nearby Gyms",
+                  img: "assets/images/map.png",
+                  page: "/google_maps_page",
+                )
               ],
             ),
           ),

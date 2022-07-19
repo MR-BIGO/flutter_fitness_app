@@ -44,7 +44,7 @@ class Calculator extends StatelessWidget {
           child: Form(
             key: _formKey,
             child: Padding(
-              padding: EdgeInsets.only(top: deviceSize.height / 10.0),
+              padding: EdgeInsets.only(top: deviceSize.height / 12.0),
               child: SingleChildScrollView(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -58,7 +58,7 @@ class Calculator extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 40),
+                      padding: const EdgeInsets.only(top: 30),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
@@ -161,7 +161,7 @@ class Calculator extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(top: deviceSize.height / 10.0),
+                      padding: EdgeInsets.only(top: deviceSize.height / 12.0),
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                             padding: EdgeInsets.zero,
@@ -212,20 +212,24 @@ class Calculator extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(top: deviceSize.height / 10),
+                      padding: EdgeInsets.only(top: deviceSize.height / 12),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           CalcCard(
-                              text: "Body mass index",
-                              img: "assets/images/bmi.png",
-                              amount: context.watch<FitnessProvider>().bmi),
+                            text: "Body mass index",
+                            img: "assets/images/bmi.png",
+                            amount: context.watch<FitnessProvider>().bmi,
+                            bmiResult:
+                                context.watch<FitnessProvider>().bmiResult,
+                          ),
                           CalcCard(
-                              text: "Max heart rate",
-                              img: "assets/images/heart.png",
-                              amount: context
-                                  .watch<FitnessProvider>()
-                                  .maxHeartRate),
+                            text: "Max heart rate",
+                            img: "assets/images/heart.png",
+                            amount:
+                                context.watch<FitnessProvider>().maxHeartRate,
+                            //bmiResult: "",
+                          ),
                         ],
                       ),
                     ),
@@ -235,16 +239,19 @@ class Calculator extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           CalcCard(
-                              text: "Ideal weight (kg)",
-                              img: "assets/images/scale2.png",
-                              amount: context
-                                  .watch<FitnessProvider>()
-                                  .healthyWeight),
+                            text: "Ideal weight (kg)",
+                            img: "assets/images/scale2.png",
+                            amount:
+                                context.watch<FitnessProvider>().healthyWeight,
+                            //bmiResult: "",
+                          ),
                           CalcCard(
-                              text: "Water (liters)",
-                              img: "assets/images/water-bottle.png",
-                              amount:
-                                  context.watch<FitnessProvider>().waterAmount),
+                            text: "Water (liters)",
+                            img: "assets/images/water-bottle.png",
+                            amount:
+                                context.watch<FitnessProvider>().waterAmount,
+                            //bmiResult: "",
+                          ),
                         ],
                       ),
                     ),

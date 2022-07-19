@@ -2,18 +2,23 @@ import 'package:flutter/material.dart';
 
 class CalcCard extends StatelessWidget {
   const CalcCard(
-      {Key? key, required this.text, required this.img, required this.amount})
+      {Key? key,
+      required this.text,
+      required this.img,
+      required this.amount,
+      this.bmiResult})
       : super(key: key);
 
   final String text;
   final String img;
   final double amount;
+  final String? bmiResult;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: 180,
-      height: 140,
+      height: 160,
       child: Card(
         color: const Color(0xff292d43),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
@@ -47,6 +52,16 @@ class CalcCard extends StatelessWidget {
                       fontSize: 20,
                       fontWeight: FontWeight.bold),
                 ),
+                bmiResult != null ?
+                Text(
+                  bmiResult!,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 14,
+                  ),
+                  textAlign: TextAlign.center,
+                )
+                : const SizedBox()
               ],
             ),
           ),

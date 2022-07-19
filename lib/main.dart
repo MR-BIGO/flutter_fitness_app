@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_fitness_app/logic/fitness_provider.dart';
 import 'package:flutter_fitness_app/data/barrel/screens_main_barrel.dart';
+import 'package:flutter_fitness_app/logic/location_provider.dart';
+import 'package:flutter_fitness_app/presentation/screens/splash_screen.dart';
+
 import 'package:provider/provider.dart';
-import 'presentation/screens/launch_screen.dart';
+
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -11,12 +14,13 @@ void main() {
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
-  runApp(
-    ChangeNotifierProvider(
-      create: (context) => FitnessProvider(),
-      child: const MyApp(),
-    ),
-  );
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(create: (context) => FitnessProvider()),
+      ChangeNotifierProvider(create: (context) => LocationProvider()),
+    ],
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -27,8 +31,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Fitness App',
-      initialRoute: '/home',
+      initialRoute: '/splash',
       routes: {
+        '/splash': (context) => const SplashScreen(),
         '/home': (context) => const LaunchScreen(),
         '/calculator_page': (context) => Calculator(),
         '/exercise_types_page': (context) => Exercises(),
@@ -37,6 +42,8 @@ class MyApp extends StatelessWidget {
         '/back_page': (context) => BackPage(),
         '/chest_page': (context) => ChestPage(),
         '/legs_page': (context) => LegsPage(),
+        '/google_maps_page': (context) =>  GoogleMapsPage(),
+ 
       },
     );
   }

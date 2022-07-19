@@ -6,16 +6,29 @@ class FitnessProvider extends ChangeNotifier {
   double _healthyWeight = 0;
   double _waterAmount = 0;
   String? _sex;
+  String _bmiResult = "";
 
   double get bmi => _bmi;
   double get maxHeartRate => _maxHeartRate;
   double get healthyWeight => _healthyWeight;
   double get waterAmount => _waterAmount;
   String? get sex => _sex;
+  String get bmiResult => _bmiResult;
 
   void bmiCalc(double weight, double height) {
     double h = height / 100;
     _bmi = weight / (h * h);
+    if(_bmi < 16){
+      _bmiResult = "< 16 - Severely Underweight";
+    }else if(_bmi >= 16 && _bmi < 18.5){
+      _bmiResult = "16 - 18.5 - Underweight";
+    }else if(_bmi >= 18.5 && _bmi < 25){
+      _bmiResult = "18.5 - 25 - Healthy Weight";
+    }else if(_bmi >= 25 && _bmi < 30){
+      _bmiResult = "25 - 30 - Overweight";
+    }else if(_bmi >= 30){
+      _bmiResult = "> 30 - Obese";
+    }
     notifyListeners();
   }
 
