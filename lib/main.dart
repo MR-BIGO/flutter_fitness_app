@@ -3,9 +3,10 @@ import 'package:flutter/services.dart';
 import 'package:flutter_fitness_app/logic/fitness_provider.dart';
 import 'package:flutter_fitness_app/data/barrel/screens_main_barrel.dart';
 import 'package:flutter_fitness_app/logic/location_provider.dart';
-import 'package:flutter_fitness_app/presentation/screens/splash_screen.dart';
-
+import 'package:flutter_fitness_app/presentation/screens/splash_screens/maps_splash_screen.dart';
 import 'package:provider/provider.dart';
+
+import 'presentation/screens/splash_screens/splash_screen.dart';
 
 
 void main() {
@@ -34,6 +35,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/splash',
       routes: {
         '/splash': (context) => const SplashScreen(),
+        '/maps_splash': (context) => const MapsSplashScreen(),
         '/home': (context) => const LaunchScreen(),
         '/calculator_page': (context) => Calculator(),
         '/exercise_types_page': (context) => Exercises(),

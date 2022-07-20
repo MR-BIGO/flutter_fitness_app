@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_fitness_app/presentation/widgets/colors.dart';
 import 'package:lottie/lottie.dart';
 
-import '../widgets/colors.dart';
+
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);

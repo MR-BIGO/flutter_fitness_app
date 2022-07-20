@@ -228,7 +228,6 @@ class Calculator extends StatelessWidget {
                             img: "assets/images/heart.png",
                             amount:
                                 context.watch<FitnessProvider>().maxHeartRate,
-                            //bmiResult: "",
                           ),
                         ],
                       ),
@@ -243,14 +242,12 @@ class Calculator extends StatelessWidget {
                             img: "assets/images/scale2.png",
                             amount:
                                 context.watch<FitnessProvider>().healthyWeight,
-                            //bmiResult: "",
                           ),
                           CalcCard(
                             text: "Water (liters)",
                             img: "assets/images/water-bottle.png",
                             amount:
                                 context.watch<FitnessProvider>().waterAmount,
-                            //bmiResult: "",
                           ),
                         ],
                       ),
