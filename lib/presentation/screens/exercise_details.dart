@@ -56,10 +56,21 @@ class ExerciseDetails extends StatelessWidget {
                   ),
                 ),
               ),
-              Text(
-                description,
-                style: const TextStyle(
-                  color: Colors.white,
+              Container(
+                decoration: ShapeDecoration(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  color: Colors.white.withOpacity(0.1),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    description,
+                    style: const TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
                 ),
               ),
             ],

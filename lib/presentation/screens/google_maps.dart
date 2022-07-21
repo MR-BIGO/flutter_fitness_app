@@ -54,6 +54,7 @@ class GoogleMapsPage extends StatelessWidget {
                 infoWindow: const InfoWindow(title: 'Current location'),
               );
               context.read<LocationProvider>().locationMarker(marker);
+              
             },
           ),
           context.watch<LocationProvider>().radiusSlider
@@ -111,8 +112,12 @@ class GoogleMapsPage extends StatelessWidget {
                                               listen: false)
                                           .radiusValue);
 
-                                    List<dynamic> searchedPlaces = placeResult['results'] as List;
-                                    print(searchedPlaces.length);
+                                  List<dynamic> searchedPlaces =
+                                      placeResult['results'] as List;
+                                  context
+                                      .read<LocationProvider>()
+                                      .setRadiusSlider();
+                                  //turns out, I cant use nearby search without billing account, so this is where I stop
                                 },
                               ),
                             )
@@ -122,7 +127,7 @@ class GoogleMapsPage extends StatelessWidget {
                           children: [
                             Expanded(
                               child: Slider(
-                                max: 20000.0,
+                                max: 7000.0,
                                 min: 1000.0,
                                 value: context
                                     .watch<LocationProvider>()

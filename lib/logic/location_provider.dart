@@ -9,7 +9,6 @@ class LocationProvider extends ChangeNotifier {
   Set<Circle> _circles = Set<Circle>();
   bool _radiusSlider = false;
   double _radiusValue = 3000.0;
- 
 
   Set<Marker> get markers => _markers;
   Position get position => _position;
@@ -17,7 +16,6 @@ class LocationProvider extends ChangeNotifier {
   Set<Circle> get circles => _circles;
   bool get radiusSlider => _radiusSlider;
   double get radiusValue => _radiusValue;
-  
 
   void locationMarker(Marker marker) {
     _markers.clear();
@@ -25,29 +23,29 @@ class LocationProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  void getLocation(Position position){
+  void getLocation(Position position) {
     _position = position;
     notifyListeners();
   }
 
-  void mapType(){
+  void mapType() {
     _mapTypeNormal = !_mapTypeNormal;
     notifyListeners();
   }
 
-  void addCircle(Circle circle){
+  void addCircle(Circle circle) {
+    _circles.clear();
     _circles.add(circle);
     notifyListeners();
   }
 
-  void setRadiusSlider(){
+  void setRadiusSlider() {
     _radiusSlider = !_radiusSlider;
     notifyListeners();
   }
 
-  void setRadiusValue(double value){
+  void setRadiusValue(double value) {
     _radiusValue = value;
     notifyListeners();
   }
-
 }

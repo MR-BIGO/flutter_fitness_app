@@ -36,11 +36,10 @@ getPlaceDetails(LatLng coord, double radius) async {
   double lat = coord.latitude;
   double lng = coord.longitude;
 
-  final String url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670522,151.1957362&radius=15000&types=gym&key=AIzaSyA9w_825KsWumE1B7qnFgZOcndcEbGSwj0';
+  final String url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?&location=$lat,$lng&radius=$radius&types=gym&key=@string/google_maps_key"';
 
 
-
-      //'https://maps.googleapis.com/maps/api/place/nearbysearch/json?&location=$lat,$lng&radius=$radius&types=gym&key=AIzaSyA9w_825KsWumE1B7qnFgZOcndcEbGSwj0';
+//turns out, I cant use nearby search without billing account, so this is where I stop
 
   var response = await http.get(Uri.parse(url));
 
