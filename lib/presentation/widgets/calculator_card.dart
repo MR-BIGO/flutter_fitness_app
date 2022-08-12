@@ -16,8 +16,9 @@ class CalcCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final deviceSize = MediaQuery.of(context).size;
     return SizedBox(
-      width: 180,
+      width: deviceSize.width / 2.5,
       height: 160,
       child: Card(
         color: const Color(0xff292d43),
